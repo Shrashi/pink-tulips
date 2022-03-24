@@ -1,0 +1,52 @@
+.navBarItems {
+  background: linear-gradient(
+    90deg,
+    rgb(254, 94, 233) 0%,
+    rgb(252, 63, 180) 100%
+  );
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.2rem;
+}
+.navBar-logo {
+  justify-self: start;
+  margin-left: 15px;
+  cursor: pointer;
+  color: antiquewhite;
+  font-size: 24px;
+  font-weight: 600;
+}
+.menu-icon {
+  margin-left: 5px;
+  display: flex;
+  align-items: center;
+}
+.nav-menu {
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  grid-gap: 10px;
+  list-style: none;
+  text-align: center;
+  justify-content: end;
+  width: 70vw;
+}
+
+.nav-links {
+  color: aliceblue;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+}
+.nav-links:hover {
+  background-color: rgb(237, 100, 237);
+  border-radius: 4px;
+  transition: all 0.2s ease-out;
+}
+.sign-up-btn {
+  margin-right: 15px;
+}
+.nav-logo-img {
+  border-radius: 50%;
+  padding: 5px;
+}
