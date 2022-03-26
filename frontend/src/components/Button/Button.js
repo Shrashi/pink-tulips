@@ -1,7 +1,15 @@
 import React from "react";
+import styled from "styled-components";
 import "./button.css";
-const STYLES = ["btn--primary", "btn--outline"];
-const SIZES = ["btn--medium", "btn--large"];
+
+const ButtonStyled = styled.button`
+  padding: 8px 20px;
+  border-radius: 4px;
+  font-size: 18px;
+  color: #ffff;
+  background-color: ${({ theme }) => theme.background.primary};
+  min-width: 135px;
+`;
 
 const Button = ({
   children,
@@ -11,18 +19,7 @@ const Button = ({
   buttonSize,
   className,
 }) => {
-  const checkButtonStyle = STYLES.includes(buttonStyle)
-    ? buttonStyle
-    : STYLES[0];
-  const checkButtonSize = SIZES.includes(buttonSize) ? buttonSize : SIZES[0];
-  return (
-    <button
-      className={`btn ${checkButtonStyle} ${checkButtonSize} ${className}`}
-      onClick={onClick}
-    >
-      {children}
-    </button>
-  );
+  return <ButtonStyled onClick={onClick}>{children}</ButtonStyled>;
 };
 
 export default Button;

@@ -6,17 +6,15 @@ const SearchField = ({ defaultValue, name, size, height }) => {
     setSearchText(e.target.value);
   };
   return (
-    <span className="search-field">
+    <div className="search-field">
       <input
         type="text"
-        size={size}
-        height={height}
         placeholder={defaultValue}
         name={name}
         value={searchText}
         onChange={onChangeSearchText}
       />
-    </span>
+    </div>
   );
 };
 export default SearchField;

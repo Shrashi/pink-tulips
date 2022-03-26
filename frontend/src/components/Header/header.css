@@ -17,10 +17,13 @@
   color: antiquewhite;
   font-size: 24px;
   font-weight: 600;
+  width: 130px;
 }
 .menu-icon {
   margin-left: 5px;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  grid-gap: 10px;
   align-items: center;
 }
 .nav-menu {
@@ -45,8 +48,12 @@
 }
 .sign-up-btn {
   margin-right: 15px;
+  width: 135px;
 }
 .nav-logo-img {
   border-radius: 50%;
   padding: 5px;
+}
+.search-field-bar {
+  display: inline-flex;
 }
