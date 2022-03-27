@@ -49,6 +49,7 @@
 .sign-up-btn {
   margin-right: 15px;
   width: 135px;
+  cursor: pointer;
 }
 .nav-logo-img {
   border-radius: 50%;

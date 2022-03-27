@@ -5,6 +5,7 @@ import SearchField from "../Field/SearchField";
 import "./header.css";
 import styled from "styled-components";
 import { FaSearch } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const NavStyled = styled.nav`
   background: linear-gradient(
@@ -17,6 +18,9 @@ const NavStyled = styled.nav`
   justify-content: space-between;
   align-items: center;
   font-size: 1.2rem;
+  // position: fixed;
+  width: 100vw;
+  box-shadow: 10px 10px 5px 0px rgba(184, 138, 214, 0.75);
 `;
 const SIWrapperStyled = styled.div`
   width: 40px;
@@ -30,15 +34,23 @@ const SearchIconStyled = styled(FaSearch)`
 `;
 const Header = ({ logo, onIcon }) => {
   const [state, setState] = useState(false);
+  const navigate = useNavigate();
   const onBtnClick = () => {
     console.log("Button is clicked");
+    navigate("/signUp");
+  };
+  const onClickLogo = () => {
+    console.log("Take me home");
+    navigate("/home");
   };
   const onClickIcon = (ele) => {
     return () => {
       onIcon && onIcon(ele.title);
+      navigate(ele.url);
       console.log("Iam clicked", ele.title);
     };
   };
+
   return (
     <NavStyled>
       <div className="menu-icon">
@@ -49,7 +61,9 @@ const Header = ({ logo, onIcon }) => {
           alt="nav-logo"
           className="nav-logo-img"
         />
-        <div className="navBar-logo">Pink Tulips</div>
+        <div className="navBar-logo" onClick={onClickLogo}>
+          Pink Tulips
+        </div>
 
         <SearchField
           size="60"
