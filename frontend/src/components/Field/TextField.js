@@ -23,14 +23,14 @@ const TextField = ({
   type,
   required,
   helperText,
-  fieldName,
+  requiredText,
+  name,
   onChangeField,
+  value,
 }) => {
   return (
     <div>
-      <StyledRequiredText>
-        {required ? "*mandatory" : "not required"}
-      </StyledRequiredText>
+      <StyledRequiredText>{requiredText}</StyledRequiredText>
       <StyledInput
         className="styled-input"
         id={id}
@@ -38,8 +38,9 @@ const TextField = ({
         placeholder={label}
         size="25"
         required={required}
-        name={fieldName}
+        name={name}
         onChange={onChangeField}
+        value={value}
       />
       <StyledHelperText>{helperText}</StyledHelperText>
     </div>

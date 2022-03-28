@@ -10,11 +10,14 @@ const ButtonStyled = styled.button`
   background-color: ${({ theme }) => theme.background.primary};
   min-width: 135px;
   cursor: pointer;
-  margin-left: 20px;
 `;
 
-const Button = ({ children, onClick }) => {
-  return <ButtonStyled onClick={onClick}>{children}</ButtonStyled>;
+const Button = ({ children, onClick, className }) => {
+  return (
+    <ButtonStyled onClick={onClick} className={className}>
+      {children}
+    </ButtonStyled>
+  );
 };
 
 export default Button;

@@ -20,7 +20,7 @@ const NavStyled = styled.nav`
   font-size: 1.2rem;
   // position: fixed;
   width: 100vw;
-  box-shadow: 10px 10px 5px 0px rgba(184, 138, 214, 0.75);
+  box-shadow: 2px 4px 40px 0px rgba(59, 59, 166, 0.75);
 `;
 const SIWrapperStyled = styled.div`
   width: 40px;

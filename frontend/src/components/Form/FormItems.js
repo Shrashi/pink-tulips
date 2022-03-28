@@ -5,7 +5,7 @@ export const FormItems = [
     helperText: "more than 4 characters",
     label: "Name",
     required: true,
-    fieldName: "Customer Name",
+    fieldName: "name",
   },
   {
     id: "address-sign-up",
@@ -13,7 +13,7 @@ export const FormItems = [
     helperText: "more than 10 characters",
     label: "Address",
     required: true,
-    fieldName: "Residential Address",
+    fieldName: "address",
   },
   {
     id: "contact-sign-up",
@@ -21,7 +21,7 @@ export const FormItems = [
     helperText: "should have 10 digits",
     label: "Contact Number",
     required: true,
-    fieldName: "Contact Detail",
+    fieldName: "contactNumber",
   },
   {
     id: "email-sign-up",
@@ -29,7 +29,7 @@ export const FormItems = [
     helperText: "not more than 254 characters",
     label: "Email",
     required: true,
-    fieldName: "Email Id",
+    fieldName: "email",
   },
   {
     id: "password-sign-up",
@@ -37,6 +37,6 @@ export const FormItems = [
     helperText: "should have an uppercase letter,numbers",
     label: "Password",
     required: true,
-    fieldName: "Password",
+    fieldName: "password",
   },
 ];

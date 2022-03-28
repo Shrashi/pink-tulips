@@ -3,6 +3,8 @@ import TextField from "../Field/TextField";
 import styled from "styled-components";
 import { FormItems } from "./FormItems";
 import Button from "../Button/Button";
+import useFormErrors from "./useFormErrors";
+import { FormRules } from "./FormRules";
 const TextFieldStyled = styled(TextField)`
   margin-top: 120px;
   width: 100px;
@@ -12,7 +14,10 @@ const TextFieldStyled = styled(TextField)`
   display: inline-block;
 `;
 const FormFieldStyled = styled.div`
-  margin: 20px;
+  margin-bottom: 20px;
+`;
+const FormWrapperStyled = styled.div`
+  padding: 20px;
 `;
 const FormNameStyled = styled.div`
   font-size: 40px;
@@ -20,9 +25,24 @@ const FormNameStyled = styled.div`
   margin-bottom: 5px;
 `;
 const Form = ({ formName }) => {
-  const [formState, setFormState] = useState({});
+  const [formState, setFormState] = useState({
+    name: "",
+    address: "",
+    contactNumber: "",
+    email: "",
+    password: "",
+  });
+
+  const validatePassword = (p) => {
+    var re = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+    return re.test(p);
+  };
   const onFormSubmit = () => {
-    console.log("Details Submitted");
+    if (validatePassword(formState.password)) {
+      console.log("Details Submitted");
+    } else {
+      alert("Password must contain special character,alphanumeric characters.");
+    }
   };
   const onFieldChange = (e) => {
     let n = e.target.name;
@@ -32,29 +52,32 @@ const Form = ({ formName }) => {
     });
   };
   console.log("Form state is", formState);
+  const [error, require] = useFormErrors(formState, FormRules);
+  console.log("the required is", require);
+  console.log("the errors are", error);
   return (
-    <div>
+    <FormWrapperStyled>
       <FormNameStyled>{formName}</FormNameStyled>
       {FormItems.map((ele) => {
         return (
           <FormFieldStyled key={ele.id}>
-            {ele.fieldName}{" "}
+            {ele.label}{" "}
             <TextFieldStyled
               id={ele.id}
               type={ele.type}
-              helperText={ele.helperText}
+              helperText={error[ele.fieldName]}
+              requiredText={require[ele.fieldName]}
               label={ele.label}
               required={ele.required}
-              fieldName={ele.fieldName}
+              name={ele.fieldName}
               onChangeField={onFieldChange}
+              value={formState[ele.fieldName] || ""}
             />
           </FormFieldStyled>
         );
       })}
-      <Button style={{ padding: "15px 15px" }} onClick={onFormSubmit}>
-        Submit
-      </Button>
-    </div>
+      <Button onClick={onFormSubmit}>Submit</Button>
+    </FormWrapperStyled>
   );
 };
 
