@@ -1,10 +1,5 @@
 import React from "react";
 const About = () => {
-  return (
-    <div>
-      About page
-      <button>HI</button>
-    </div>
-  );
+  return <div>About page</div>;
 };
 export default About;

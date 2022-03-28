@@ -10,6 +10,10 @@ const ButtonStyled = styled.button`
   background-color: ${({ theme }) => theme.background.primary};
   min-width: 135px;
   cursor: pointer;
+  :hover {
+    background-color: #a744cf;
+    transition: all 0.3s ease-out;
+  }
 `;
 
 const Button = ({ children, onClick, className }) => {

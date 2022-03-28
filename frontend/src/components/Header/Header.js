@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { MenuItems } from "./MenuItems";
+import { menuItems } from "./MenuItems";
 import Button from "../Button/Button.js";
 import SearchField from "../Field/SearchField";
 import "./header.css";
@@ -18,7 +18,6 @@ const NavStyled = styled.nav`
   justify-content: space-between;
   align-items: center;
   font-size: 1.2rem;
-  // position: fixed;
   width: 100vw;
   box-shadow: 2px 4px 40px 0px rgba(59, 59, 166, 0.75);
 `;
@@ -36,18 +35,15 @@ const Header = ({ logo, onIcon }) => {
   const [state, setState] = useState(false);
   const navigate = useNavigate();
   const onBtnClick = () => {
-    console.log("Button is clicked");
     navigate("/signUp");
   };
   const onClickLogo = () => {
-    console.log("Take me home");
     navigate("/home");
   };
-  const onClickIcon = (ele) => {
+  const onClickIcon = ({ title, url }) => {
     return () => {
-      onIcon && onIcon(ele.title);
-      navigate(ele.url);
-      console.log("Iam clicked", ele.title);
+      onIcon && onIcon(title);
+      navigate(url);
     };
   };
 
@@ -76,17 +72,8 @@ const Header = ({ logo, onIcon }) => {
         </SIWrapperStyled>
       </div>
 
-      {/* <div className="search-field-bar">
-        <SearchField
-          size="60"
-          height="50"
-          defaultValue="Search..."
-          name="search-field"
-        />
-        <Button buttonSize="btn--medium">Search</Button>
-      </div> */}
       <ul className={state ? "nav-menu-active" : "nav-menu"}>
-        {MenuItems.map((ele, ind) => {
+        {menuItems.map((ele, ind) => {
           return (
             <li key={ind} onClick={onClickIcon(ele)}>
               <a className={ele.cName} href={ele.url}>

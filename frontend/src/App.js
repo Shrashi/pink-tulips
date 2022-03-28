@@ -22,13 +22,13 @@ const theme = {
     secondary: " #a2d5c6",
   },
   color: {
-    primary: "#ffffff",
+    primary: "#fff",
     secondary: "#000",
   },
 };
 function App() {
   const onClickIcon = (title) => {
-    console.log("header item clicked is", title);
+    // console.log("header item clicked is", title);
   };
 
   return (
@@ -37,12 +37,12 @@ function App() {
         <div className="App">
           <Header logo={pinktulips} onIcon={onClickIcon} />
           <Routes>
-            <Route path="/home" exact={true} element={<HomePage />} />
-            <Route path="/about" exact={true} element={<About />} />
-            <Route path="/services" exact={true} element={<Services />} />
-            <Route path="/contactUs" exact={true} element={<Contact />} />
-            <Route path="/products" exact={true} element={<Products />} />
-            <Route path="/signUp" exact={true} element={<SignUp />} />
+            <Route path="/home" exact element={<HomePage />} />
+            <Route path="/about" exact element={<About />} />
+            <Route path="/services" exact element={<Services />} />
+            <Route path="/contactUs" exact element={<Contact />} />
+            <Route path="/products" exact element={<Products />} />
+            <Route path="/signUp" exact element={<SignUp />} />
           </Routes>
         </div>
       </BrowserRouter>
