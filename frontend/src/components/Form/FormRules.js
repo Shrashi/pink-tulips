@@ -1,4 +1,4 @@
-export const FormRules = [
+export const formRules = [
   {
     required: true,
     fieldName: "name",
@@ -28,7 +28,6 @@ export const FormRules = [
     fieldName: "password",
     minLength: 10,
     maxLength: 30,
+    regex: /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/,
   },
 ];
-
-export const PasswordRules = { upperLettersmin: 1 };

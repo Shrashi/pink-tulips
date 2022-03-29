@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { menuItems } from "./MenuItems";
-import Button from "../Button/Button.js";
-import SearchField from "../Field/SearchField";
-import "./header.css";
 import styled from "styled-components";
 import { FaSearch } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+
+import { menuItems } from "./menuItems";
+import Button from "../Button/Button.js";
+import SearchField from "../Field/SearchField";
+import "./header.css";
 
 const NavStyled = styled.nav`
   background: linear-gradient(
@@ -33,6 +34,7 @@ const SearchIconStyled = styled(FaSearch)`
 `;
 const Header = ({ logo, onIcon }) => {
   const [state, setState] = useState(false);
+  const [searchField, setSearchField] = useState("");
   const navigate = useNavigate();
   const onBtnClick = () => {
     navigate("/signUp");
@@ -46,7 +48,9 @@ const Header = ({ logo, onIcon }) => {
       navigate(url);
     };
   };
-
+  const onChangeSearchField = (e) => {
+    setSearchField(e.target.value);
+  };
   return (
     <NavStyled>
       <div className="menu-icon">
@@ -66,6 +70,8 @@ const Header = ({ logo, onIcon }) => {
           height="50"
           defaultValue="Search..."
           name="search-field"
+          value={searchField}
+          onChangeField={onChangeSearchField}
         />
         <SIWrapperStyled>
           <SearchIconStyled></SearchIconStyled>

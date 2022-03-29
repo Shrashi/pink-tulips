@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import TextField from "../Field/TextField";
 import styled from "styled-components";
-import { FormItems } from "./FormItems";
+
+import TextField from "../Field/TextField";
+import { formItems } from "./formItems";
 import Button from "../Button/Button";
 import useFormErrors from "./useFormErrors";
-import { FormRules } from "./FormRules";
+import { formRules } from "./formRules";
 const TextFieldStyled = styled(TextField)`
   margin-top: 120px;
   width: 100px;
@@ -24,41 +25,18 @@ const FormNameStyled = styled.div`
   color: #32a89b;
   margin-bottom: 5px;
 `;
-const Form = ({ formName }) => {
-  const [formState, setFormState] = useState({
-    name: "",
-    address: "",
-    contactNumber: "",
-    email: "",
-    password: "",
-  });
+const Form = ({ formName, onFormSubmit, onFieldChange, formState }) => {
+  const onSubmitForm = () => {
+    onFormSubmit && onFormSubmit(formState);
+  };
 
-  const validatePassword = (p) => {
-    var re = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
-    return re.test(p);
-  };
-  const onFormSubmit = () => {
-    if (validatePassword(formState.password)) {
-      console.log("Details Submitted");
-    } else {
-      alert("Password must contain special character,alphanumeric characters.");
-    }
-  };
-  const onFieldChange = (e) => {
-    let n = e.target.name;
-    let v = e.target.value;
-    setFormState((f) => {
-      return { ...f, [n]: v };
-    });
-  };
-  console.log("Form state is", formState);
-  const [error, require] = useFormErrors(formState, FormRules);
-  console.log("the required is", require);
-  console.log("the errors are", error);
+  console.log("form state is", formState);
+  const [error, require] = useFormErrors(formState, formRules);
+
   return (
     <FormWrapperStyled>
       <FormNameStyled>{formName}</FormNameStyled>
-      {FormItems.map((ele) => {
+      {formItems.map((ele) => {
         return (
           <FormFieldStyled key={ele.id}>
             {ele.label}{" "}
@@ -76,7 +54,7 @@ const Form = ({ formName }) => {
           </FormFieldStyled>
         );
       })}
-      <Button onClick={onFormSubmit}>Submit</Button>
+      <Button onClick={onSubmitForm}>Submit</Button>
     </FormWrapperStyled>
   );
 };

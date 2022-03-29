@@ -27,9 +27,7 @@ const theme = {
   },
 };
 function App() {
-  const onClickIcon = (title) => {
-    // console.log("header item clicked is", title);
-  };
+  const onClickIcon = (title) => {};
 
   return (
     <ThemeProvider theme={theme}>

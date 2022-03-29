@@ -1,7 +1,6 @@
-export const FormItems = [
+export const formItems = [
   {
     id: "name-sign-up",
-    type: "text",
     helperText: "more than 4 characters",
     label: "Name",
     required: true,
@@ -9,7 +8,6 @@ export const FormItems = [
   },
   {
     id: "address-sign-up",
-    type: "text",
     helperText: "more than 10 characters",
     label: "Address",
     required: true,

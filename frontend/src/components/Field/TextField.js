@@ -20,7 +20,7 @@ const StyledInput = styled.input`
 const TextField = ({
   id,
   label,
-  type,
+  type = "text",
   required,
   helperText,
   requiredText,
@@ -28,8 +28,11 @@ const TextField = ({
   onChangeField,
   value,
 }) => {
+  const onChangeText = (e) => {
+    onChangeField && onChangeField(e.target.name, e.target.value);
+  };
   return (
-    <div>
+    <>
       <StyledRequiredText>{requiredText}</StyledRequiredText>
       <StyledInput
         className="styled-input"
@@ -39,11 +42,11 @@ const TextField = ({
         size="25"
         required={required}
         name={name}
-        onChange={onChangeField}
+        onChange={onChangeText}
         value={value}
       />
       <StyledHelperText>{helperText}</StyledHelperText>
-    </div>
+    </>
   );
 };
 export default TextField;

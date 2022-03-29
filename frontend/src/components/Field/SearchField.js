@@ -1,20 +1,33 @@
 import React, { useState } from "react";
+import styled from "styled-components";
 import "../Field/searchField.css";
-const SearchField = ({ defaultValue, name, size, height }) => {
-  const [searchText, setSearchText] = useState("");
-  const onChangeSearchText = (e) => {
-    setSearchText(e.target.value);
-  };
+
+const DivStyled = styled.div`
+  margin-left: 20px;
+  display: flex;
+`;
+const InpStyled = styled.input`
+  height: 36.8px;
+  width: 300px;
+`;
+const SearchField = ({
+  defaultValue,
+  name,
+  size,
+  height,
+  value,
+  onChangeField,
+}) => {
   return (
-    <div className="search-field">
-      <input
+    <DivStyled>
+      <InpStyled
         type="text"
         placeholder={defaultValue}
         name={name}
-        value={searchText}
-        onChange={onChangeSearchText}
+        value={value}
+        onChange={onChangeField}
       />
-    </div>
+    </DivStyled>
   );
 };
 export default SearchField;
