@@ -1,0 +1,40 @@
+export const formItems = [
+  {
+    id: "name-sign-up",
+    helperText: "more than 4 characters",
+    label: "Name",
+    required: true,
+    fieldName: "name",
+  },
+  {
+    id: "address-sign-up",
+    helperText: "more than 10 characters",
+    label: "Address",
+    required: true,
+    fieldName: "address",
+  },
+  {
+    id: "contact-sign-up",
+    type: "number",
+    helperText: "should have 10 digits",
+    label: "Contact Number",
+    required: true,
+    fieldName: "contactNumber",
+  },
+  {
+    id: "email-sign-up",
+    type: "email",
+    helperText: "not more than 254 characters",
+    label: "Email",
+    required: true,
+    fieldName: "email",
+  },
+  {
+    id: "password-sign-up",
+    type: "password",
+    helperText: "should have an uppercase letter,numbers",
+    label: "Password",
+    required: true,
+    fieldName: "password",
+  },
+];
