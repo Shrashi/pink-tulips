@@ -15,6 +15,9 @@ import Products from "./containers/products/Products";
 import Services from "./containers/services/Services";
 import Contact from "./containers/contact/Contact";
 import SignUp from "./containers/signUp/SignUp";
+import Carousel from "./components/Carousel/Carousel";
+
+import { carouselItems } from "./utils/constants";
 
 const theme = {
   background: {
@@ -42,6 +45,7 @@ function App() {
             <Route path="/products" exact element={<Products />} />
             <Route path="/signUp" exact element={<SignUp />} />
           </Routes>
+          <Carousel imgConfig={carouselItems} />
         </div>
       </BrowserRouter>
     </ThemeProvider>
