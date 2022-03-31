@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { FaAngleDoubleLeft, FaAngleDoubleRight } from "react-icons/fa";
+
 const ImgStyled = styled.img`
 width:900px
 display: inline-block;
@@ -66,22 +67,25 @@ const Carousel = ({ imgConfig, onClickImg }) => {
     setCurrentImg(img);
   }, [onImg]);
 
-  const onClickPrevious = () => {
-    if (onImg > 0 && onImg <= imgConfig.length) {
-      setOnImg(onImg - 1);
-    } else {
-      setOnImg(imgConfig.length - 1);
-    }
+  const onClickCarouselButton = (isLeft) => {
+    return isLeft
+      ? () => {
+          if (onImg > 0 && onImg <= imgConfig.length) {
+            setOnImg(onImg - 1);
+          } else {
+            setOnImg(imgConfig.length - 1);
+          }
+        }
+      : () => {
+          if (onImg >= 0 && onImg < imgConfig.length - 1) {
+            setOnImg(onImg + 1);
+          } else {
+            setOnImg(0);
+          }
+        };
   };
-  const onClickNext = () => {
-    if (onImg >= 0 && onImg < imgConfig.length - 1) {
-      setOnImg(onImg + 1);
-    } else {
-      setOnImg(0);
-    }
-  };
-  const onClickImage = ({ src, alt, imageNo, url }) => {
-    onClickImg && onClickImg(src, alt, imageNo, url);
+  const onClickImage = (currImg) => {
+    onClickImg && onClickImg(currImg);
   };
   if (!currentImg) {
     return null;
@@ -90,11 +94,13 @@ const Carousel = ({ imgConfig, onClickImg }) => {
 
   return (
     <DivStyled>
-      <ImgShiftLeftStyled onClick={onClickPrevious}></ImgShiftLeftStyled>
-
+      <ImgShiftLeftStyled
+        onClick={onClickCarouselButton(true)}
+      ></ImgShiftLeftStyled>
       <ImgStyled src={imgSrc} alt={imgAlt} onClick={onClickImage(currentImg)} />
-
-      <ImgShiftRightStyled onClick={onClickNext}></ImgShiftRightStyled>
+      <ImgShiftRightStyled
+        onClick={onClickCarouselButton(false)}
+      ></ImgShiftRightStyled>
       <CarouselIndicator config={imgConfig} imageNo={imgNo} />
     </DivStyled>
   );
@@ -105,7 +111,6 @@ const CarouselIndicator = ({ config, imageNo }) => {
     <ListStyled>
       {config.map((ele) => {
         const selected = ele.imageNo === imageNo ? "primary" : "secondary";
-
         return (
           <ListItemStyled
             selected={selected}
