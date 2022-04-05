@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { FaAngleDoubleLeft, FaAngleDoubleRight } from "react-icons/fa";
+import BaseService from "../../services/BaseService";
 
 const ImgStyled = styled.img`
 width:900px
@@ -59,6 +60,7 @@ const DivStyled = styled.div`
   position: relative;
   padding: 20px;
 `;
+// const myBaseService = new BaseService();
 const Carousel = ({ imgConfig, onClickImg }) => {
   const [onImg, setOnImg] = useState(0);
   const [currentImg, setCurrentImg] = useState();
@@ -66,6 +68,13 @@ const Carousel = ({ imgConfig, onClickImg }) => {
     const img = imgConfig.at(onImg);
     setCurrentImg(img);
   }, [onImg]);
+
+  // useEffect(() => {
+  //   const d = myBaseService
+  //     .request({ url: "/latest-offers" })
+  //     .then((d) => console.log("data is", d));
+  //   console.log("data is", d);
+  // }, []);
 
   const onClickCarouselButton = (isLeft) => {
     return isLeft
