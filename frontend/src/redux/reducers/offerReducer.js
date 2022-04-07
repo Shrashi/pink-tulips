@@ -6,7 +6,7 @@ const offerReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_LATEST_OFFERS:
       {
-        newState.offerList = action.payload.offerList;
+        newState.list = action.payload.list;
         return newState;
       }
       break;

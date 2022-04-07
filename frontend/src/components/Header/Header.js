@@ -48,7 +48,7 @@ const Header = ({ logo, onIcon }) => {
       navigate(url);
     };
   };
-  console.log("Hi");
+
   const onChangeSearchField = (e) => {
     setSearchField(e.target.value);
   };

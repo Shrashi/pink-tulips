@@ -10,6 +10,7 @@ import {
   useLocation,
 } from "react-router-dom";
 import { Provider } from "react-redux";
+
 import HomePage from "./containers/home/HomePage.js";
 import About from "./containers/about/About.js";
 import Products from "./containers/products/Products";

@@ -1,12 +1,11 @@
 import { latestOffers } from "./mockData";
 
 export const getMockData = (url) => {
-  let finObj;
+  let offers;
   if (/latest-offers/.test(url)) {
-    finObj = getLatestOffers();
-    return finObj;
+    offers = getLatestOffers();
   }
-  return { success: "succesfully done", data: finObj };
+  return { success: true, data: offers, message: "successfully received" };
 };
 const getLatestOffers = () => {
   return latestOffers;
