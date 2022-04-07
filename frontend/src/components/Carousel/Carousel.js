@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { FaAngleDoubleLeft, FaAngleDoubleRight } from "react-icons/fa";
 
+import BaseService from "../../services/BaseService";
+
 const ImgStyled = styled.img`
 width:900px
 display: inline-block;
@@ -59,6 +61,7 @@ const DivStyled = styled.div`
   position: relative;
   padding: 20px;
 `;
+
 const Carousel = ({ imgConfig, onClickImg }) => {
   const [onImg, setOnImg] = useState(0);
   const [currentImg, setCurrentImg] = useState();

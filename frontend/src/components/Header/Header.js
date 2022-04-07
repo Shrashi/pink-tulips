@@ -48,6 +48,7 @@ const Header = ({ logo, onIcon }) => {
       navigate(url);
     };
   };
+
   const onChangeSearchField = (e) => {
     setSearchField(e.target.value);
   };

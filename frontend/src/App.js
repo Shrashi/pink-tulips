@@ -9,15 +9,15 @@ import {
   BrowserRouter,
   useLocation,
 } from "react-router-dom";
+import { Provider } from "react-redux";
+
 import HomePage from "./containers/home/HomePage.js";
 import About from "./containers/about/About.js";
 import Products from "./containers/products/Products";
 import Services from "./containers/services/Services";
 import Contact from "./containers/contact/Contact";
 import SignUp from "./containers/signUp/SignUp";
-import Carousel from "./components/Carousel/Carousel";
-
-import { carouselItems } from "./utils/constants";
+import store from "./redux/store";
 
 const theme = {
   background: {
@@ -33,22 +33,23 @@ function App() {
   const onClickIcon = (title) => {};
 
   return (
-    <ThemeProvider theme={theme}>
-      <BrowserRouter>
-        <div className="App">
-          <Header logo={pinktulips} onIcon={onClickIcon} />
-          <Routes>
-            <Route path="/home" exact element={<HomePage />} />
-            <Route path="/about" exact element={<About />} />
-            <Route path="/services" exact element={<Services />} />
-            <Route path="/contactUs" exact element={<Contact />} />
-            <Route path="/products" exact element={<Products />} />
-            <Route path="/signUp" exact element={<SignUp />} />
-          </Routes>
-          <Carousel imgConfig={carouselItems} />
-        </div>
-      </BrowserRouter>
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <BrowserRouter>
+          <div className="App">
+            <Header logo={pinktulips} onIcon={onClickIcon} />
+            <Routes>
+              <Route path="/home" exact element={<HomePage />} />
+              <Route path="/about" exact element={<About />} />
+              <Route path="/services" exact element={<Services />} />
+              <Route path="/contactUs" exact element={<Contact />} />
+              <Route path="/products" exact element={<Products />} />
+              <Route path="/signUp" exact element={<SignUp />} />
+            </Routes>
+          </div>
+        </BrowserRouter>
+      </ThemeProvider>
+    </Provider>
   );
 }
 
