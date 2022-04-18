@@ -62,7 +62,7 @@ const DivStyled = styled.div`
   padding: 20px;
 `;
 
-const Carousel = ({ imgConfig, onClickImg }) => {
+const Carousel = ({ imgConfig = [], onClickImg }) => {
   const [onImg, setOnImg] = useState(0);
   const [currentImg, setCurrentImg] = useState();
   useEffect(() => {

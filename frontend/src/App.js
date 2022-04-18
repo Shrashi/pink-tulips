@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./App.css";
 import Header from "./components/Header/Header.js";
 import pinktulips from "./assets/pinktulips.jpg";
@@ -17,8 +18,11 @@ import Products from "./containers/products/Products";
 import Services from "./containers/services/Services";
 import Contact from "./containers/contact/Contact";
 import SignUp from "./containers/signUp/SignUp";
+import SideDrawer from "./components/SideDrawer/SideDrawer";
 import store from "./redux/store";
+import Backdrop from "./components/Backdrop/Backdrop";
 
+const DRAWER_ITEMS = ["Home", "About", "Services", "Contact us"];
 const theme = {
   background: {
     primary: "#d72631",
@@ -31,13 +35,28 @@ const theme = {
 };
 function App() {
   const onClickIcon = (title) => {};
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const drawerToggleHanlder = () => {
+    setDrawerOpen((prev) => {
+      return !prev;
+    });
+  };
 
+  const backDropHandler = () => {
+    setDrawerOpen(false);
+  };
   return (
     <Provider store={store}>
       <ThemeProvider theme={theme}>
         <BrowserRouter>
-          <div className="App">
-            <Header logo={pinktulips} onIcon={onClickIcon} />
+          <div style={{ height: "100%" }}>
+            <Header
+              logo={pinktulips}
+              onIcon={onClickIcon}
+              drawerClickHandler={drawerToggleHanlder}
+            />
+            {drawerOpen && <SideDrawer drawerItems={DRAWER_ITEMS} />}
+            {drawerOpen && <Backdrop onClickBackdrop={backDropHandler} />}
             <Routes>
               <Route path="/home" exact element={<HomePage />} />
               <Route path="/about" exact element={<About />} />

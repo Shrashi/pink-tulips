@@ -5,10 +5,16 @@ import "../Field/searchField.css";
 const DivStyled = styled.div`
   margin-left: 20px;
   display: flex;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 const InpStyled = styled.input`
   height: 36.8px;
   width: 300px;
+  @media (max-width: 768px) {
+    width: inherit;
+  }
 `;
 const SearchField = ({
   defaultValue,
