@@ -5,7 +5,7 @@ import img2 from "../assets/carousel-item2.jpg";
 import img3 from "../assets/carousel-item3.jpg";
 import img4 from "../assets/carousel-item4.jpg";
 import img5 from "../assets/carousel-item5.jpg";
-
+import flask from "../assets/flask.png";
 export const carouselItems = [
   {
     src: img1,
@@ -42,3 +42,72 @@ export const carouselItems = [
 export const ACTION_TYPES = {
   GET_LATEST_OFFERS: "GET_LATEST_OFFERS",
 };
+
+export const CARD_CAROUSEL_ITEMS = [
+  ,
+  {
+    headerText: "Test for Coronavirus",
+    footerText: "Rs 500  Onwards",
+    clickText: "Purchase Now",
+    cardImg: flask,
+    subHeaderText: "Available at 1 certified lab",
+  },
+  {
+    headerText: "Test for Coronavirus",
+    footerText: "Rs 500  Onwards",
+    clickText: "Purchase Now",
+    cardImg: flask,
+    subHeaderText: "Available at 1 certified lab",
+  },
+  {
+    headerText: "Test for Coronavirus",
+    footerText: "Rs 500  Onwards",
+    clickText: "Purchase Now",
+    cardImg: flask,
+    subHeaderText: "Available at 1 certified lab",
+  },
+  {
+    headerText: "Test for Coronavirus",
+    footerText: "Rs 500  Onwards",
+    clickText: "Purchase Now",
+    cardImg: flask,
+    subHeaderText: "Available at 1 certified lab",
+  },
+
+  {
+    headerText: "Test for Coronavirus",
+    footerText: "Rs 500  Onwards",
+    clickText: "Purchase Now",
+    cardImg: flask,
+    subHeaderText: "Available at 1 certified lab",
+  },
+
+  {
+    headerText: "Test for Coronavirus",
+    footerText: "Rs 500  Onwards",
+    clickText: "Purchase Now",
+    cardImg: flask,
+    subHeaderText: "Available at 1 certified lab",
+  },
+  {
+    headerText: "Test for Coronavirus",
+    footerText: "Rs 500  Onwards",
+    clickText: "Purchase Now",
+    cardImg: flask,
+    subHeaderText: "Available at 1 certified lab",
+  },
+  {
+    headerText: "Test for Diarrhoea",
+    footerText: "Rs 500  Onwards",
+    clickText: "Purchase Now",
+    cardImg: flask,
+    subHeaderText: "Available at 1 certified lab",
+  },
+  {
+    headerText: "Test for Tuberculosis",
+    footerText: "Rs 500  Onwards",
+    clickText: "Purchase Now",
+    cardImg: flask,
+    subHeaderText: "Available at 1 certified lab",
+  },
+];
