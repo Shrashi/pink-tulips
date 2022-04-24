@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import Card from "../Card/Card";
 import { FaArrowLeft } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa";
@@ -50,7 +50,20 @@ const StyledCarouselItems = styled.div`
 `;
 const StyledArrowLeft = styled(FaArrowLeft)``;
 const StyledArrowRight = styled(FaArrowRight)``;
-const CardCarousel = ({ backgroundText, headerText, children }) => {
+const CardCarousel = ({ backgroundText, headerText, children, data = [] }) => {
+  const scrollableContainerRef = useRef();
+
+  const onClickRight = () => {
+    const [firstChild] = scrollableContainerRef.current.children;
+
+    scrollableContainerRef.current.scrollLeft =
+      scrollableContainerRef.current.scrollLeft + firstChild.offsetWidth;
+  };
+  const onClickLeft = () => {
+    const [firstChild] = scrollableContainerRef.current.children;
+    scrollableContainerRef.current.scrollLeft =
+      scrollableContainerRef.current.scrollLeft - firstChild.offsetWidth;
+  };
   return (
     <StyledCarouselContainer>
       <StyledTextContainer>
@@ -58,13 +71,13 @@ const CardCarousel = ({ backgroundText, headerText, children }) => {
         <StyledBackgroundText>{backgroundText}</StyledBackgroundText>
       </StyledTextContainer>
       <StyledLeftControlSpan>
-        <StyledArrowLeft></StyledArrowLeft>
+        <StyledArrowLeft onClick={onClickLeft}></StyledArrowLeft>
       </StyledLeftControlSpan>
       <StyledRightControlSpan>
-        <StyledArrowRight></StyledArrowRight>
+        <StyledArrowRight onClick={onClickRight}></StyledArrowRight>
       </StyledRightControlSpan>
-      <StyledCarouselItems>
-        {CARD_CAROUSEL_ITEMS.map((ele) => {
+      <StyledCarouselItems ref={scrollableContainerRef}>
+        {data.map((ele) => {
           return (
             <Card
               headerText={ele.headerText}

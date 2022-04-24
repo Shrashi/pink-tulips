@@ -5,6 +5,7 @@ import img2 from "../assets/carousel-item2.jpg";
 import img3 from "../assets/carousel-item3.jpg";
 import img4 from "../assets/carousel-item4.jpg";
 import img5 from "../assets/carousel-item5.jpg";
+import flask from "../assets/flask.png";
 
 export const latestOffers = [
   {
@@ -41,5 +42,74 @@ export const latestOffers = [
     imageNo: 4,
     url: "/url4",
     _id: "764tc2",
+  },
+];
+
+export const LAB_TEST_ITEMS = [
+  ,
+  {
+    headerText: "Test for Coronavirus",
+    footerText: "Rs 500  Onwards",
+    clickText: "Purchase Now",
+    cardImg: flask,
+    subHeaderText: "Available at 1 certified lab",
+  },
+  {
+    headerText: "Test for Coronavirus",
+    footerText: "Rs 500  Onwards",
+    clickText: "Purchase Now",
+    cardImg: flask,
+    subHeaderText: "Available at 1 certified lab",
+  },
+  {
+    headerText: "Test for Coronavirus",
+    footerText: "Rs 500  Onwards",
+    clickText: "Purchase Now",
+    cardImg: flask,
+    subHeaderText: "Available at 1 certified lab",
+  },
+  {
+    headerText: "Test for Coronavirus",
+    footerText: "Rs 500  Onwards",
+    clickText: "Purchase Now",
+    cardImg: flask,
+    subHeaderText: "Available at 1 certified lab",
+  },
+
+  {
+    headerText: "Test for Coronavirus",
+    footerText: "Rs 500  Onwards",
+    clickText: "Purchase Now",
+    cardImg: flask,
+    subHeaderText: "Available at 1 certified lab",
+  },
+
+  {
+    headerText: "Test for Coronavirus",
+    footerText: "Rs 500  Onwards",
+    clickText: "Purchase Now",
+    cardImg: flask,
+    subHeaderText: "Available at 1 certified lab",
+  },
+  {
+    headerText: "Test for Coronavirus",
+    footerText: "Rs 500  Onwards",
+    clickText: "Purchase Now",
+    cardImg: flask,
+    subHeaderText: "Available at 1 certified lab",
+  },
+  {
+    headerText: "Test for Diarrhoea",
+    footerText: "Rs 500  Onwards",
+    clickText: "Purchase Now",
+    cardImg: flask,
+    subHeaderText: "Available at 1 certified lab",
+  },
+  {
+    headerText: "Test for Tuberculosis",
+    footerText: "Rs 500  Onwards",
+    clickText: "Purchase Now",
+    cardImg: flask,
+    subHeaderText: "Available at 1 certified lab",
   },
 ];

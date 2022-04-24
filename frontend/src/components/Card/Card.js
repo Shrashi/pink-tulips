@@ -48,9 +48,10 @@ const Card = ({
   clickText,
   cardImg,
   subHeaderText,
+  ref,
 }) => {
   return (
-    <StyledCardContainer>
+    <StyledCardContainer ref={ref}>
       <StyledCardImage>
         <img src={cardImg} alt="card-image" width="40" height="40" />
       </StyledCardImage>
