@@ -1,8 +1,4 @@
 import { useState } from "react";
-import "./App.css";
-import Header from "./components/Header/Header.js";
-import pinktulips from "./assets/pinktulips.jpg";
-import styled, { ThemeProvider } from "styled-components";
 import {
   Route,
   Routes,
@@ -12,6 +8,10 @@ import {
 } from "react-router-dom";
 import { Provider } from "react-redux";
 
+import styled, { ThemeProvider } from "styled-components";
+import "./App.css";
+import Header from "./components/Header/Header.js";
+import pinktulips from "./assets/pinktulips.jpg";
 import HomePage from "./containers/home/HomePage.js";
 import About from "./containers/about/About.js";
 import Products from "./containers/products/Products";
@@ -36,15 +36,10 @@ const theme = {
 function App() {
   const onClickIcon = (title) => {};
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const drawerToggleHanlder = () => {
-    setDrawerOpen((prev) => {
-      return !prev;
-    });
-  };
+  const drawerToggleHanlder = () => setDrawerOpen((prev) => !prev);
 
-  const backDropHandler = () => {
-    setDrawerOpen(false);
-  };
+  const backDropHandler = () => setDrawerOpen(false);
+
   return (
     <Provider store={store}>
       <ThemeProvider theme={theme}>

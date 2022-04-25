@@ -52,24 +52,10 @@ const Header = ({ logo, onIcon, drawerClickHandler }) => {
   const [state, setState] = useState(false);
   const [searchField, setSearchField] = useState("");
   const navigate = useNavigate();
-  const [windowWidth, windowHeight] = useDimension();
+  const [windowWidth, windowHeight, screenSize] = useDimension();
   const onBtnClick = () => {
     navigate("/signUp");
   };
-
-  const checkWidth = (w) => {
-    if (w < 991) {
-      return "xs-sm";
-    } else if (991 < w <= 1199) {
-      return "md";
-    } else if (w > 1199) {
-      return "lg";
-    }
-  };
-
-  const screenSize = useMemo(() => {
-    return checkWidth(windowWidth);
-  }, [windowWidth]);
 
   const onClickLogo = () => {
     navigate("/home");
@@ -85,7 +71,9 @@ const Header = ({ logo, onIcon, drawerClickHandler }) => {
     setSearchField(e.target.value);
   };
   const HeaderComp =
-    screenSize === "xs-sm" ? MobileHeaderMenu : DesktopHeaderMenu;
+    screenSize === "xs" || screenSize === "sm"
+      ? MobileHeaderMenu
+      : DesktopHeaderMenu;
   return (
     <NavStyled>
       <HeaderComp
