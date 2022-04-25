@@ -42,3 +42,10 @@ export const carouselItems = [
 export const ACTION_TYPES = {
   GET_LATEST_OFFERS: "GET_LATEST_OFFERS",
 };
+
+export const BREAK_POINTS = {
+  extraSmall: 0,
+  small: 600,
+  medium: 900,
+  large: 1200,
+};
