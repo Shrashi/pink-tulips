@@ -68,7 +68,7 @@ const Carousel = ({ imgConfig = [], onClickImg }) => {
   useEffect(() => {
     const img = imgConfig.at(onImg);
     setCurrentImg(img);
-  }, [onImg]);
+  }, [onImg, imgConfig]);
 
   const onClickCarouselButton = (isLeft) => {
     return isLeft

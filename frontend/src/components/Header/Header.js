@@ -52,7 +52,7 @@ const Header = ({ logo, onIcon, drawerClickHandler }) => {
   const [state, setState] = useState(false);
   const [searchField, setSearchField] = useState("");
   const navigate = useNavigate();
-  const [windowWidth, windowHeight, screenSize] = useDimension();
+  const { screenSize } = useDimension();
   const onBtnClick = () => {
     navigate("/signUp");
   };

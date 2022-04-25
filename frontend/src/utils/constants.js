@@ -43,8 +43,9 @@ export const ACTION_TYPES = {
   GET_LATEST_OFFERS: "GET_LATEST_OFFERS",
 };
 
-export const breakPoints = {
-  extraSmall: 768,
-  small: 992,
-  medium: 1312,
+export const BREAK_POINTS = {
+  extraSmall: 0,
+  small: 600,
+  medium: 900,
+  large: 1200,
 };

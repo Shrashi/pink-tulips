@@ -1,20 +1,26 @@
 import React, { useEffect, useState, useMemo } from "react";
 
-import { breakPoints } from "../utils/constants";
+import { BREAK_POINTS } from "../utils/constants";
 
 export default function useDimension() {
   const [width, setWidth] = useState(window.innerWidth);
   const [height, setHeight] = useState(window.innerHeight);
 
-  const { extraSmall, small, medium } = breakPoints;
+  useEffect(() => {
+    window.addEventListener("resize", onSizeChange);
+    return () => {
+      window.removeEventListener("resize", onSizeChange);
+    };
+  }, []);
+  const { extraSmall, small, medium, large } = BREAK_POINTS;
   const checkWidth = (w) => {
-    if (w <= extraSmall) {
+    if (extraSmall <= w && w < small) {
       return "xs";
-    } else if (extraSmall < w <= small) {
+    } else if (small <= w && w < medium) {
       return "sm";
-    } else if (medium >= w > small) {
+    } else if (medium <= w && w < large) {
       return "md";
-    } else if (w > medium) {
+    } else if (w >= large) {
       return "lg";
     }
   };
@@ -27,11 +33,6 @@ export default function useDimension() {
     setWidth(window.innerWidth);
     setHeight(window.innerHeight);
   };
-  useEffect(() => {
-    window.addEventListener("resize", onSizeChange);
-    return () => {
-      window.removeEventListener("resize", onSizeChange);
-    };
-  }, []);
-  return [width, height, screenSize];
+
+  return { width, height, screenSize };
 }
