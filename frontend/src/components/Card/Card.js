@@ -53,7 +53,7 @@ const Card = ({
   return (
     <StyledCardContainer ref={ref}>
       <StyledCardImage>
-        <img src={cardImg} alt="card-image" width="40" height="40" />
+        <img src={cardImg || {}} alt="card-image" width="40" height="40" />
       </StyledCardImage>
       <StyledHeader>{headerText}</StyledHeader>
 

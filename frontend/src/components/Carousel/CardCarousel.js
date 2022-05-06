@@ -1,8 +1,9 @@
 import React, { useRef } from "react";
-import Card from "../Card/Card";
 import { FaArrowLeft } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa";
 import styled from "styled-components";
+
+import Card from "../Card/Card";
 import { CARD_CAROUSEL_ITEMS } from "../../utils/constants";
 
 const StyledCarouselContainer = styled.div`
@@ -48,8 +49,7 @@ const StyledCarouselItems = styled.div`
   overflow: auto;
   max-width: 90vw;
 `;
-const StyledArrowLeft = styled(FaArrowLeft)``;
-const StyledArrowRight = styled(FaArrowRight)``;
+
 const CardCarousel = ({ backgroundText, headerText, children, data = [] }) => {
   const scrollableContainerRef = useRef();
 
@@ -71,23 +71,25 @@ const CardCarousel = ({ backgroundText, headerText, children, data = [] }) => {
         <StyledBackgroundText>{backgroundText}</StyledBackgroundText>
       </StyledTextContainer>
       <StyledLeftControlSpan>
-        <StyledArrowLeft onClick={onClickLeft}></StyledArrowLeft>
+        <FaArrowLeft onClick={onClickLeft}></FaArrowLeft>
       </StyledLeftControlSpan>
       <StyledRightControlSpan>
-        <StyledArrowRight onClick={onClickRight}></StyledArrowRight>
+        <FaArrowRight onClick={onClickRight}></FaArrowRight>
       </StyledRightControlSpan>
       <StyledCarouselItems ref={scrollableContainerRef}>
-        {data.map((ele) => {
-          return (
-            <Card
-              headerText={ele.headerText}
-              footerText={ele.footerText}
-              clickText={ele.clickText}
-              cardImg={ele.cardImg}
-              subHeaderText={ele.subHeaderText}
-            />
-          );
-        })}
+        {data.map(
+          ({ headerText, footerText, clickText, cardImg, subHeaderText }) => {
+            return (
+              <Card
+                headerText={headerText}
+                footerText={footerText}
+                clickText={clickText}
+                cardImg={cardImg}
+                subHeaderText={subHeaderText}
+              />
+            );
+          }
+        )}
       </StyledCarouselItems>
     </StyledCarouselContainer>
   );
