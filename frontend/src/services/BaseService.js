@@ -5,7 +5,7 @@ class BaseService {
   request = (options) => {
     const { method, url, headers, body, params } = options;
 
-    const skippedUrls = ["/latest-offers"];
+    const skippedUrls = ["/latest-offers", "/lab-tests"];
     if (skippedUrls.includes(url)) {
       return new Promise((resolve, reject) => {
         const data = getMockData(url);

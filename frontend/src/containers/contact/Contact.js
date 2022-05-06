@@ -1,5 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
+
+import Card from "../../components/Card/Card";
+import flask from "../../assets/flask.png";
+import useActions from "../../utils/hooks/useActions";
+import * as labTestActions from "../../redux/actions/labTestActions";
+import CardCarousel from "../../components/Carousel/CardCarousel";
+
 const Contact = () => {
-  return <div>Contact </div>;
+  const actions = useActions(labTestActions);
+  const data = useSelector(({ labTests }) => labTests.list);
+  useEffect(() => {
+    fetchLabTests();
+  }, []);
+  const fetchLabTests = () => {
+    actions.getLabTests();
+  };
+  return (
+    <div>
+      <CardCarousel
+        headerText="Lab Tests"
+        backgroundText="Welcome"
+        data={data}
+      />
+    </div>
+  );
 };
 export default Contact;
